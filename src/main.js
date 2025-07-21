@@ -9,7 +9,7 @@ const input = document.getElementById('search');
 const loader = document.getElementById('loader-center');
 const gallery = document.getElementById('gallery');
 
-const lightbox = new SimpleLightbox('.gallery-item', {
+const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
@@ -63,13 +63,13 @@ function renderGallery(images) {
         downloads,
       }) => {
         return `
-      <a href="${largeImageURL}" class="gallery-item">
-        <img src="${webformatURL}" alt="${tags}" />
+      <a href="${largeImageURL}" class="photo-card">
+        <img src="${webformatURL}" alt="${tags}"/>
         <div class="info">
-          <p>Likes: ${likes}</p>
-          <p>Views: ${views}</p>
-          <p>Comments: ${comments}</p>
-          <p>Downloads: ${downloads}</p>
+          <p><b>Likes</b><br> ${likes}</p>
+          <p><b>Views</b><br> ${views}</p>
+          <p><b>Comments</b><br> ${comments}</p>
+          <p><b>Downloads</b><br> ${downloads}</p>
         </div>
       </a>
     `;
@@ -81,3 +81,7 @@ function renderGallery(images) {
 
   lightbox.refresh();
 }
+
+iziToast.settings({
+  position: `topRight`,
+});
